@@ -6,4 +6,8 @@ class ArticleSerializers(serializers.ModelSerializer):
     class Meta:
         model = Article
         fields = ['title', 'author', 'email', 'date']
-    
+
+
+
+
+# Function based api view using serializer
