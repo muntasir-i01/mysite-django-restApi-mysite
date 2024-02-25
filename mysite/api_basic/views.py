@@ -29,6 +29,7 @@ def article_list(request):
 
 
 
+@csrf_exempt
 def article_detail(request, pk):
     try:
         article = Article.objects.get(pk=pk)
