@@ -1,2 +1,14 @@
-Restful API - acts as a translator between two machines communication over a web service. Server can receive data from applicatoins. This application can be web apps, can be native desktop application or can be android applications or can be ios applications. Restful API can return json file which can be interpreted by a large variety of devices.
-Django rest framework also called DRF so which is a framework built upon django framework and it's used for developing restful API there are some reasons that you might use rest framework. so it has a web browsable API and it is a huge usability went for their developers-it has authentication policies, also it has a serializations that support both ORM and Non-ORM data source and also it has an extensive documentation and it has a good documentation and it has a great community support.
+What Are Restful APIs ?
+
+A RESTful API acts as a translator between two machines communicating over a Web service. If your familiar with the concept of API This is just like an API but it’s working on a RESTful Web service and the API is used by two applications trying to communicate with each other over a network or Internet.
+. Web developers program REST API that server can receive data from applications. These applications can be web-apps, Android/iOS apps, etc. RESTful APIs return JSON files which can be interpreted by a variety of devices.
+
+
+What is Django REST Framework?
+
+DRF is a framework built upon the Django Framework. And it is used for developing restful apis . 
+Some reasons you might want to use REST framework:
+• The Web browsable API is a huge usability win for your developers.
+• Authentication policies
+• Serialization that supports both ORM and non-ORM data sources.
+• Extensive documentation, and great community support.
