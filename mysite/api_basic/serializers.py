@@ -12,3 +12,5 @@ class ArticleSerializers(serializers.ModelSerializer):
 
 
 # Function based api view using serializer
+
+# what does serializer do and which api function based/ class based / generics api will I use in which time. 
