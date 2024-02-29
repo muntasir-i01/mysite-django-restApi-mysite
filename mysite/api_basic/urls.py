@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import article_list, article_detail, ArticleAPIView, ArticleDetails, GenericAPIView
+from .views import article_list, article_detail, ArticleAPIView, ArticleDetails, GenericAPIView, ArticleViewSet
+from rest_framework.routers import DefaultRouter
 
 
 urlpatterns = [
