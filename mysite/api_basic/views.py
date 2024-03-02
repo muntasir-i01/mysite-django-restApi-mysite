@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from nntplib import ArticleInfo
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, JsonResponse
 from rest_framework.parsers import JSONParser
 from .models import Article
@@ -37,17 +38,26 @@ class ArticleViewSet(viewsets.ViewSet):
     def retrieve(self, request, pk=None):
         queryset = Article.objects.all()
         article = get_object_or_404(queryset, pk = pk)
-        serializer = ArticleSerializers(articles, many = True)
+        serializer = ArticleSerializers(article)
         return Response(serializer.data)
 
     def update(self, request, pk=None):
-        pass
+        article = Article.objects.get(pk=pk)
+        serializer = ArticleSerializers(article, data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def partial_update(self, request, pk=None):
         pass
 
     def destroy(self, request, pk=None):
-        pass
+        article = Article.objects.get(pk=pk)
+        article.delete()
+        return HttpResponse(status=status.HTTP_204_NO_CONTENT)
 
 
 
