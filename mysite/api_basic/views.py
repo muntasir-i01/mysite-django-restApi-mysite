@@ -19,6 +19,16 @@ from rest_framework import viewsets
 
 #viewsets
 
+class ModelArticleViewSet(viewsets.ModelViewSet):
+    serializer_class = ArticleSerializers
+    queryset = Article.objects.all()
+    
+
+class GenericArticleViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin, mixins.RetrieveModelMixin, mixins.DestroyModelMixin):
+    serializer_class = ArticleSerializers
+    queryset = Article.objects.all()
+
+
 class ArticleViewSet(viewsets.ViewSet):
     def list(self, request):
         articles = Article.objects.all()
