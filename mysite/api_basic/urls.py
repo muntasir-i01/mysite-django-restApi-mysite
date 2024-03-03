@@ -10,12 +10,21 @@ router.register('article', ModelArticleViewSet, basename='article')
 
 urlpatterns = [
     path('viewset/modelview/', include(router.urls)),
+
     path('viewset/generic/', include(router.urls)),
+
     path('viewset/', include(router.urls)),
     path('viewset/<int:pk>/', include(router.urls)),
-    path('article/function/', article_list),
+    
+
     path('article/class/', ArticleAPIView.as_view()),
+    path('article/class/<int:id>/', ArticleDetails.as_view()), 
+
     path('article/generic/', GenericAPIView.as_view()),
-    path('details/function/<int:pk>/', article_detail),
-    path('details/class/<int:id>/', ArticleDetails.as_view()), 
+    path('article/generic/<int:id>/', GenericAPIView.as_view()),
+
+
+    path('article/function/', article_list),
+    path('article/function/<int:pk>/', article_detail),
+    
 ]   
