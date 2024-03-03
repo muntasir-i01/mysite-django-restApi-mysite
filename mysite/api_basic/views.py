@@ -94,7 +94,7 @@ class GenericAPIView(generics.GenericAPIView, mixins.ListModelMixin, mixins.Crea
 
 
     def put(self, request, id=None):
-        return self.update(request, id)
+        return self.update(request, id, partial=True)
 
 
     def delete(self, request, id):
@@ -139,7 +139,7 @@ class ArticleDetails(APIView):
 
     def put(self, request, id):
         article = self.get_object(id)
-        serializer = ArticleSerializers(article, data=request.data)
+        serializer = ArticleSerializers(article, data=request.data, partial=True)
 
         if serializer.is_valid():
             serializer.save()
@@ -196,7 +196,7 @@ def article_detail(request, pk):
 
 
     elif request.method == 'PUT':
-        serializer = ArticleSerializers(article, data=request.data)
+        serializer = ArticleSerializers(article, data=request.data, partial=True)
 
         if serializer.is_valid():
             serializer.save()
