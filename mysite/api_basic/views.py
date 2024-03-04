@@ -19,6 +19,10 @@ from rest_framework import viewsets
 
 #viewsets
 
+class ArticleReadOnlyModelViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializers
+
 class ModelArticleViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializers
     queryset = Article.objects.all()

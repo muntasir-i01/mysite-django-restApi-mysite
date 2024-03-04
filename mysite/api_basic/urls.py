@@ -1,14 +1,17 @@
 from django.urls import include, path
-from .views import article_list, article_detail, ArticleAPIView, ArticleDetails, GenericAPIView, ArticleViewSet, GenericArticleViewSet, ModelArticleViewSet
+from .views import article_list, article_detail, ArticleAPIView, ArticleDetails, GenericAPIView, ArticleViewSet, GenericArticleViewSet, ModelArticleViewSet, ArticleReadOnlyModelViewSet
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register('article', ArticleViewSet, basename='article')
 router.register('article', GenericArticleViewSet, basename='article')
 router.register('article', ModelArticleViewSet, basename='article')
+router.register('article', ArticleReadOnlyModelViewSet, basename='article')
 
 
 urlpatterns = [
+    path('viewset/readOnlyModelView/', include(router.urls)),
+
     path('viewset/modelview/', include(router.urls)),
 
     path('viewset/generic/', include(router.urls)),
